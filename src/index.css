@@ -16,4 +16,5 @@
 .react-pdf__Page__canvas {
   width: 100% !important;
   height: auto !important;
+  max-height: 95dvh !important;
 }
