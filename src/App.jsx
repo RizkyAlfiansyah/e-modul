@@ -11,7 +11,7 @@ export default function App() {
   }
 
   return (
-    <div className="w-full container m-auto min-h-screen flex flex-col justify-center items-center p-12 gap-4">
+    <div className="w-full container m-auto min-h-[100dvh] flex flex-col justify-center items-center p-12 gap-4">
       <div className="w-full flex flex-row-reverse justify-between">
         <button
           disabled={pageNumber === numPages}
@@ -37,7 +37,7 @@ export default function App() {
         <Document file={PdfFile} onLoadSuccess={onDocumentLoadSuccess}>
           <div className="flex h-fit flex-col justify-center items-center">
             <Page
-              width={window.innerWidth < 768 ? 350 : 800}
+              width={window.innerWidth < 768 ? 320 : 800}
               height={window.innerWidth < 768 ? 300 : 400}
               pageNumber={pageNumber}
               renderTextLayer={false}
