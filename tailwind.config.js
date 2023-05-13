@@ -6,6 +6,9 @@ export default {
       zIndex: {
         100: 100,
       },
+      backgroundImage: {
+        'hero-pattern': "url('/src/assets/images/bg-hero.jpeg')",
+      },
     },
   },
   plugins: [],
