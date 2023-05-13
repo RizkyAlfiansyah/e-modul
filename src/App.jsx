@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <section className="w-full min-h-screen bg-hero-pattern backdrop-blur-lg bg-black bg-opacity-50">
-      <div className="w-full backdrop-blur-sm bg-black bg-opacity-30">
+      <div className="w-full h-full backdrop-blur-sm bg-black bg-opacity-30">
         <div className="relative w-full max-w-fit m-auto min-h-[100dvh] flex flex-col justify-start items-center py-4 gap-4">
           <Dropdown
             title="Pilih Topik"
