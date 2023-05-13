@@ -67,7 +67,7 @@ export default function App() {
                 </button>
               </div>
               <Page
-                width={window.innerWidth <= 768 ? 350 : 800}
+                // width={window.innerWidth <= 768 ? 350 : 800}
                 // height={window.innerWidth <= 768 ? 300 : 400}
                 pageNumber={pageNumber}
                 renderTextLayer={false}
