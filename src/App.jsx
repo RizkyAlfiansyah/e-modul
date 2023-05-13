@@ -14,7 +14,7 @@ export default function App() {
 
   return (
     <section className="w-full min-h-screen bg-gray-200">
-      <div className="relative w-full max-w-fit m-auto min-h-[100dvh] flex flex-col justify-center items-center py-4 gap-4">
+      <div className="relative w-full max-w-fit m-auto min-h-[100dvh] flex flex-col justify-start items-center py-4 gap-4">
         <div className="w-full flex flex-col gap-2">
           <div
             className="w-full p-3 rounded-md bg-orange-500 text-white hover:bg-orange-400 cursor-pointer"
@@ -66,8 +66,8 @@ export default function App() {
                 </button>
               </div>
               <Page
-                width={window.innerWidth < 768 ? 320 : 800}
-                height={window.innerWidth < 768 ? 300 : 400}
+                width={window.innerWidth <= 768 ? 320 : 800}
+                // height={window.innerWidth <= 768 ? 300 : 400}
                 pageNumber={pageNumber}
                 renderTextLayer={false}
               />
