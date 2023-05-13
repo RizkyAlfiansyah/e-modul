@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <section className="w-full h-[100dvh] bg-hero-pattern backdrop-blur-lg bg-black bg-opacity-50">
-      <div className="w-full h-full backdrop-blur-sm bg-black bg-opacity-30 overflow-y-auto">
+      <div className="w-full h-full backdrop-blur-sm bg-black bg-opacity-30 overflow-y-auto overflow-x-hidden">
         <div className="relative max-w-3xl m-auto h-fit flex flex-col justify-start items-center p-4 gap-4">
           <div className="w-full p-4">
             <img src={LogoPNG} alt="logo-unm" className="w-full" />
