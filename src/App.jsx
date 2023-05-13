@@ -42,9 +42,9 @@ export default function App() {
         <p className="text-white">
           Page {pageNumber} of {numPages}
         </p>
-        <div className="w-full h-full grid place-items-center rounded-lg">
+        <div className="w-full h-full rounded-lg">
           <Document file={PdfFile} onLoadSuccess={onDocumentLoadSuccess}>
-            <div className="relative flex h-fit flex-col justify-center items-center">
+            <div className="relative w-full flex h-fit">
               <div className="w-full absolute top-0 bg-black bg-opacity-30 flex justify-between px-4 py-2 z-[99]">
                 <button
                   disabled={pageNumber === 1}
