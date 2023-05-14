@@ -17,4 +17,5 @@
   width: 100% !important;
   height: auto !important;
   max-height: 95dvh !important;
+  transition: all 0.5s ease-in-out;
 }

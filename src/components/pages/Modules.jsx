@@ -47,7 +47,10 @@ export default function Modules() {
                     Next
                   </button>
                 </div>
-                <div className="w-full" ref={docsRef}>
+                <div
+                  className="w-full transition-all ease-in-out duration-150"
+                  ref={docsRef}
+                >
                   <Page pageNumber={pageNumber} renderTextLayer={false} />
                 </div>
               </div>
