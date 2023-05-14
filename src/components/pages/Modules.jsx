@@ -17,8 +17,8 @@ export default function Modules() {
 
   return (
     <section className="w-full h-[100dvh] bg-hero-pattern backdrop-blur-lg bg-black bg-opacity-50">
-      <div className="w-full h-full backdrop-blur-sm bg-black bg-opacity-30 overflow-auto">
-        <div className="relative max-w-fit m-auto h-fit flex flex-col justify-start items-center p-4 gap-4">
+      <div className="w-full h-full backdrop-blur-sm bg-black bg-opacity-30 overflow-hidden">
+        <div className="relative max-w-3xl m-auto h-fit flex flex-col justify-start items-center p-4 gap-4">
           <div className="w-full h-full rounded-lg flex flex-col gap-2">
             <Document
               file={PdfFile}
@@ -55,11 +55,7 @@ export default function Modules() {
                   className="w-full transition-all ease-in-out duration-150"
                   ref={docsRef}
                 >
-                  <Page
-                    pageNumber={pageNumber}
-                    renderTextLayer={false}
-                    width={window.innerWidth < 768 ? 350 : 550}
-                  />
+                  <Page pageNumber={pageNumber} renderTextLayer={false} />
                 </div>
               </div>
             </Document>
