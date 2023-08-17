@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import PdfFile from '../../assets/files.pdf';
+import PdfFile from '../../assets/e-modul/profil.pdf';
 import { Document, Page } from 'react-pdf/dist/esm/entry.vite';
 import { useSearchParams } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ export default function Modules() {
   }
 
   return (
-    <section className="w-full h-[100dvh] bg-hero-pattern backdrop-blur-lg bg-black bg-opacity-50">
+    <section className="w-full h-[100vh] bg-hero-pattern backdrop-blur-lg bg-black bg-opacity-50">
       <div className="w-full h-full backdrop-blur-sm bg-black bg-opacity-30 overflow-hidden">
         <div className="relative max-w-3xl m-auto h-fit flex flex-col justify-start items-center p-4 gap-4">
           <div className="w-full h-full rounded-lg flex flex-col gap-2">
