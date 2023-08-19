@@ -1,3 +1,4 @@
+import { ChaoticOrbit } from '@uiball/loaders';
 import React, { useRef, useState } from 'react';
 import { Document, Page } from 'react-pdf/dist/esm/entry.vite';
 
@@ -14,11 +15,16 @@ export default function PdfFileRender({ PdfFile }) {
     <section className="w-full">
       <div className="w-full h-full">
         <div className="relative max-w-3xl m-auto h-fit flex flex-col justify-start items-center gap-4">
-          <div className="w-full h-full rounded-lg flex flex-col gap-2">
+          <div className="w-full min-h-[200px] h-full rounded-lg flex flex-col justify-center gap-2">
             <Document
               file={PdfFile}
               onLoadSuccess={onDocumentLoadSuccess}
               className="w-full h-full"
+              loading={
+                <div className="w-full h-full flex justify-center items-center">
+                  <ChaoticOrbit size={50} color="#fff" />
+                </div>
+              }
             >
               <div className="relative w-full flex h-fit border border-primary-100">
                 {numPages > 1 && (

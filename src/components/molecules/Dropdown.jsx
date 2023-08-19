@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ReactComponent as ChevronSvg } from '../assets/icons/chevron.svg';
+import { ReactComponent as ChevronSvg } from '../../assets/icons/chevron.svg';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Dropdown = ({ title, onClick, collapsed, children }) => {

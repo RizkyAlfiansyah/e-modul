@@ -1,7 +1,21 @@
 import React, { useRef, useState } from 'react';
-import PdfFile from '../../assets/e-modul/profil.pdf';
+import Topik1PDF from '../../assets/e-modul/topik-1-otonomi.pdf';
+import Topik2PDF from '../../assets/e-modul/topik-2-isi.pdf';
+import Topik3PDF from '../../assets/e-modul/topik-3-isi.pdf';
+import Topik4PDF from '../../assets/e-modul/topik-4-isi.pdf';
+import Topik5PDF from '../../assets/e-modul/topik-5-isi.pdf';
+import Topik6PDF from '../../assets/e-modul/topik-6-isi.pdf';
 import { Document, Page } from 'react-pdf/dist/esm/entry.vite';
-import { useSearchParams } from 'react-router-dom';
+
+const PdfFile = [
+  '',
+  Topik1PDF,
+  Topik2PDF,
+  Topik3PDF,
+  Topik4PDF,
+  Topik5PDF,
+  Topik6PDF,
+];
 
 export default function Modules() {
   const params = new URLSearchParams(window.location.search);
@@ -21,7 +35,7 @@ export default function Modules() {
         <div className="relative max-w-3xl m-auto h-fit flex flex-col justify-start items-center p-4 gap-4">
           <div className="w-full h-full rounded-lg flex flex-col gap-2">
             <Document
-              file={PdfFile}
+              file={PdfFile[params.get('topik')]}
               onLoadSuccess={onDocumentLoadSuccess}
               className="w-full h-full"
             >

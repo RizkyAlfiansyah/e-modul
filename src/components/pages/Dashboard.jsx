@@ -1,17 +1,21 @@
 import React, { useRef, useState } from 'react';
-import Dropdown from '../../components/Dropdown';
+import Dropdown from '../molecules/Dropdown';
 import LogoPNG from '../../assets/images/logo.png';
-import { Link } from 'react-router-dom';
 import ProfilePdf from '../../assets/e-modul/profil.pdf';
 import PengantarPdf from '../../assets/e-modul/pengantar.pdf';
 import DaftarIsiPdf from '../../assets/e-modul/daftar-isi.pdf';
 import DaftarPustaka from '../../assets/e-modul/daftar-pustaka.pdf';
 import Topik1Pdf from '../../assets/e-modul/topik-1-sampul.pdf';
+import Topik2Pdf from '../../assets/e-modul/topik-2-sampul.pdf';
+import Topik3Pdf from '../../assets/e-modul/topik-3-sampul.pdf';
+import Topik4Pdf from '../../assets/e-modul/topik-4-sampul.pdf';
+import Topik5Pdf from '../../assets/e-modul/topik-5-sampul.pdf';
+import Topik6Pdf from '../../assets/e-modul/topik-6-sampul.pdf';
 import PdfFileRender from '../organism/PdfFileRender';
+import MiniDropdown from '../molecules/MiniDropdown';
+import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
   const [collapsed, setCollapsed] = useState({
     profil: false,
     pengantar: false,
@@ -20,11 +24,39 @@ export default function Dashboard() {
     layanan_bimbingan: false,
     daftar_pustaka: false,
   });
-  const docsRef = useRef(null);
 
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-  }
+  const pdfCover = [
+    {
+      title: 'Topik - 1',
+      description: 'Topik 1 -  Otonomi',
+      files: Topik1Pdf,
+    },
+    {
+      title: 'Topik - 2',
+      description: 'Topik 2 -  Hubungan Positif Dengan Orang Lain',
+      files: Topik2Pdf,
+    },
+    {
+      title: 'Topik - 3',
+      description: 'Topik 3 -  Penguasaan Lingkungan',
+      files: Topik3Pdf,
+    },
+    {
+      title: 'Topik - 4',
+      description: 'Topik 4 -  Pertumbuhan Pribadi',
+      files: Topik4Pdf,
+    },
+    {
+      title: 'Topik - 5',
+      description: 'Topik 5 -  Tujuan Hidup',
+      files: Topik5Pdf,
+    },
+    {
+      title: 'Topik - 6',
+      description: 'Topik 6 -  Penerimaan Diri',
+      files: Topik6Pdf,
+    },
+  ];
 
   const menus = [
     {
@@ -52,15 +84,12 @@ export default function Dashboard() {
       onClick: () => setCollapsed({ ...collapsed, modul: !collapsed.modul }),
       collapsed: collapsed.modul,
       children: (
-        <div className="flex flex-col gap-2">
-          <Link to="/dashboard/profil/visi-misi">Visi Misi</Link>
-          <Link to="/dashboard/profil/struktur-organisasi">
-            Struktur Organisasi
-          </Link>
-          <Link to="/dashboard/profil/visi-misi">Visi Misi</Link>
-          <Link to="/dashboard/profil/struktur-organisasi">
-            Struktur Organisasi
-          </Link>
+        <div className="w-full flex flex-col gap-1">
+          {pdfCover.map((pdf, index) => (
+            <Link key={index} to={`/moduls?topik=${index + 1}`}>
+              <MiniDropdown title={pdf.description} nonCollapsed />
+            </Link>
+          ))}
         </div>
       ),
     },
@@ -73,11 +102,12 @@ export default function Dashboard() {
         }),
       collapsed: collapsed.layanan_bimbingan,
       children: (
-        <div className="flex flex-col gap-2">
-          <Link to="/dashboard/profil/visi-misi">Visi Misi</Link>
-          <Link to="/dashboard/profil/struktur-organisasi">
-            Struktur Organisasi
-          </Link>
+        <div className="w-full flex flex-col gap-1">
+          {pdfCover.map((pdf, index) => (
+            <MiniDropdown key={index} title={pdf.title}>
+              <PdfFileRender PdfFile={pdf.files} />
+            </MiniDropdown>
+          ))}
         </div>
       ),
     },
