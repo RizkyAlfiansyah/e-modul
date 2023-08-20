@@ -33,7 +33,9 @@ export default function Modules() {
       <div className="w-full h-full backdrop-blur-sm bg-black bg-opacity-30 overflow-hidden">
         <div className="relative max-w-3xl m-auto h-fit flex flex-col justify-start items-center p-4 gap-4">
           <div className="w-full h-full rounded-lg flex flex-col gap-2">
-            <PdfFileRender PdfFile={PdfFile[pageNumber - 1]} />
+            <PdfFileRender
+              PdfFile={PdfFile[parseInt(params.get('topik')) - 1]}
+            />
           </div>
         </div>
       </div>
