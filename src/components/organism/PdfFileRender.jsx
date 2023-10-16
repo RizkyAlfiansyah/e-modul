@@ -25,6 +25,9 @@ export default function PdfFileRender({ PdfFile }) {
     if (value > numPages) {
       parsedValue = numPages;
     }
+    if (value === isNaN) {
+      parsedValue = 1;
+    }
 
     setPageNumber(parsedValue);
   };
@@ -52,9 +55,10 @@ export default function PdfFileRender({ PdfFile }) {
                     <input
                       type="number"
                       value={pageNumber}
-                      max={99}
+                      min={1}
+                      max={pageNumber}
                       style={{
-                        width: `${pageNumber + 20}px`,
+                        width: `30px`,
                       }}
                       className="pl-2 py-1 text-xs focus:outline-none border rounded"
                       onChange={(e) => handlePageNumberChange(e.target.value)}
