@@ -2,6 +2,7 @@ import { ChaoticOrbit } from "@uiball/loaders";
 import React, { useRef, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.vite";
 import { Reveal } from "../atoms/Reveal";
+import Chevron from "../../assets/icons/Chevron";
 
 export default function PdfFileRender({ PdfFile }) {
   const [numPages, setNumPages] = useState(null);
@@ -38,17 +39,17 @@ export default function PdfFileRender({ PdfFile }) {
         <div className="relative max-w-3xl m-auto h-fit flex flex-col justify-start items-center gap-4">
           <div className="w-full min-h-[200px] h-full rounded-lg flex flex-col justify-center gap-2">
             {numPages > 1 && (
-              <div className="w-full absolute top-2 bg-white shadow-lg flex justify-between px-4 py-1 z-[99]">
+              <div className="w-full absolute top-2 bg-white shadow-lg flex justify-between px-1 py-1 z-[99]">
                 <div className="flex items-center gap-2">
                   <button
                     disabled={pageNumber === 1}
-                    className="px-4 py-1 bg-blue-500 rounded-md text-white disabled:opacity-50 disabled:cursor-not-allowed text-xs"
+                    className="rounded-md text-white disabled:opacity-50 disabled:cursor-not-allowed text-xs"
                     onClick={() => {
                       setInverted(false);
                       setPageNumber(pageNumber - 1);
                     }}
                   >
-                    Prev
+                    <Chevron className="transform rotate-90" />
                   </button>
                   <div className="bg-white px-2 py-1 rounded-sm flex gap-2 items-center">
                     <p className="text-center text-xs">Page</p>
@@ -58,7 +59,7 @@ export default function PdfFileRender({ PdfFile }) {
                       min={1}
                       max={pageNumber}
                       style={{
-                        width: `30px`,
+                        width: `35px`,
                       }}
                       className="pl-2 py-1 text-xs focus:outline-none border rounded"
                       onChange={(e) => handlePageNumberChange(e.target.value)}
@@ -68,13 +69,13 @@ export default function PdfFileRender({ PdfFile }) {
                 </div>
                 <button
                   disabled={pageNumber === numPages}
-                  className="px-4 py-1 bg-blue-500 rounded-md text-white disabled:opacity-50 disabled:cursor-not-allowed text-xs"
+                  className="rounded-md text-white disabled:opacity-50 disabled:cursor-not-allowed text-xs"
                   onClick={() => {
                     setInverted(true);
                     setPageNumber(pageNumber + 1);
                   }}
                 >
-                  Next
+                  <Chevron className="transform -rotate-90" />
                 </button>
               </div>
             )}
