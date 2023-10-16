@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { ReactComponent as ChevronSvg } from '../../assets/icons/chevron.svg';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { ReactComponent as ChevronSvg } from "../../assets/icons/chevron.svg";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Dropdown = ({ title, onClick, collapsed, children }) => {
   const [isCollapsed, setIsCollapsed] = useState(collapsed);
@@ -20,14 +20,14 @@ const Dropdown = ({ title, onClick, collapsed, children }) => {
           className="absolute w-full p-3 rounded-full bg-primary-200 text-blue-950 text-center hover:top-0 cursor-pointer border border-black transition-all ease-in-out duration-150"
           onClick={toggleDropdown}
         >
-          <h3 className="font-semibold text-xl">{title}</h3>
+          <h3 className="font-semibold md:text-xl text-lg">{title}</h3>
         </motion.div>
       </div>
       <AnimatePresence>
         {!isCollapsed ? null : (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "fit-content" }}
             exit={{ opacity: 0, height: 0 }}
             className="w-full rounded-md shadow-lg bg-[#C7B5AA]"
           >
