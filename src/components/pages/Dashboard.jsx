@@ -2,22 +2,17 @@ import React, { useRef, useState } from "react";
 import Dropdown from "../molecules/Dropdown";
 import LogoPNG from "../../assets/images/logo.png";
 import ProfilePdf from "../../assets/new-module/profil_pdf.pdf";
+import PanduanPenggunaPDF from "../../assets/new-module/panduan_pengguna_pdf.pdf";
 import PengantarPdf from "../../assets/new-module/kata_pengantar_pdf.pdf";
 import DaftarIsiPdf from "../../assets/new-module/daftar_isi_pdf.pdf";
 import DaftarPustaka from "../../assets/new-module/daftar_pustaka_pdf.pdf";
-import Topik1Pdf from "../../assets/e-modul/topik-1-sampul.pdf";
-import Topik2Pdf from "../../assets/e-modul/topik-2-sampul.pdf";
-import Topik3Pdf from "../../assets/e-modul/topik-3-sampul.pdf";
-import Topik4Pdf from "../../assets/e-modul/topik-4-sampul.pdf";
-import Topik5Pdf from "../../assets/e-modul/topik-5-sampul.pdf";
-import Topik6Pdf from "../../assets/e-modul/topik-6-sampul.pdf";
 import PdfFileRender from "../organism/PdfFileRender";
-import MiniDropdown from "../molecules/MiniDropdown";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   const [collapsed, setCollapsed] = useState({
     profil: false,
+    panduan_pengguna: false,
     pengantar: false,
     daftar_isi: false,
     modul: false,
@@ -26,39 +21,6 @@ export default function Dashboard() {
   });
 
   const navigate = useNavigate();
-
-  const pdfCover = [
-    {
-      title: "Topik - 1",
-      description: "Topik 1 -  Otonomi",
-      files: Topik1Pdf,
-    },
-    {
-      title: "Topik - 2",
-      description: "Topik 2 -  Hubungan Positif Dengan Orang Lain",
-      files: Topik2Pdf,
-    },
-    {
-      title: "Topik - 3",
-      description: "Topik 3 -  Penguasaan Lingkungan",
-      files: Topik3Pdf,
-    },
-    {
-      title: "Topik - 4",
-      description: "Topik 4 -  Pertumbuhan Pribadi",
-      files: Topik4Pdf,
-    },
-    {
-      title: "Topik - 5",
-      description: "Topik 5 -  Tujuan Hidup",
-      files: Topik5Pdf,
-    },
-    {
-      title: "Topik - 6",
-      description: "Topik 6 -  Penerimaan Diri",
-      files: Topik6Pdf,
-    },
-  ];
 
   const menus = [
     {
@@ -70,8 +32,8 @@ export default function Dashboard() {
     {
       title: "Panduan Penggunaan E-Modul",
       onClick: () => setCollapsed({ ...collapsed, profil: !collapsed.profil }),
-      collapsed: collapsed.profil,
-      children: <PdfFileRender PdfFile={ProfilePdf} />,
+      collapsed: collapsed.panduan_pengguna,
+      children: <PdfFileRender PdfFile={PanduanPenggunaPDF} />,
     },
     {
       title: "Kata Pengantar",
